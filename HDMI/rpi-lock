@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Script posted in the following forum:
+# 	https://bbs.archlinux.org/viewtopic.php?id=147773
+
+# Notes:
+# 	- make sure hdmi-off / hdmi-on scripts are in $PATH
+# 	- for a raspbian/lxde ui, add the path to this script to:
+#		/etc/xdg/lxsession/LXDE/autostart
+#
+
+
+process() {
+	while read input; do 
+		case "$input" in
+			UNBLANK*)  sudo hdmi-off; sleep 1; sudo hdmi-on ;;
+			LOCK*)  sudo hdmi-off ;;
+		esac
+	done
+}
+
+/usr/bin/xscreensaver-command -watch | process

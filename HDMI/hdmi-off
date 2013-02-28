@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Script posted in the following forum:
+# 	https://bbs.archlinux.org/viewtopic.php?id=147773
+
+# turn off HDMI
+tvservice --off > /dev/null
